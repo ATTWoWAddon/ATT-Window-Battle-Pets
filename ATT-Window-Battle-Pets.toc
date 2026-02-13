@@ -1,0 +1,33 @@
+## Interface: 11508, 20505, 50503, 120000, 120001
+## Version: @project-version@
+## Dependencies: AllTheThings
+## Group: AllTheThings
+## Author: Crieve
+
+## Title: Window: Battle Pets
+## Title-esES: Ventanas: Mascotas de duelo
+## Title-esMX: Ventanas: Mascotas de duelo
+## Title-deDE: Window: Kampfhaustiere
+## Title-frFR: Window: Mascottes de combat
+## Title-itIT: Window: Mascotte da combattimento
+## Title-ptBR: Window: Mascotes de Batalha
+## Title-koKR: Window: 전투 애완동물
+## Title-ruRU: Window: Боевые питомцы
+## Title-zhCN: 窗口: 战斗宠物
+## Title-zhTW: 窗口: 戰寵
+## Notes: Shows you all of the battle pets that you can collect listed by type.|n|nUsage: /attbattlepets
+## Notes-esES: Te muestra todas las mascotas de batalla que puedes coleccionar, ordenadas por tipo.|n|nUso: /attbattlepets
+## Notes-esMX: Te muestra todas las mascotas de batalla que puedes coleccionar, ordenadas por tipo.|n|nUso: /attbattlepets
+## Notes-deDE: Zeigt dir alle Kampfhaustiere, die du sammeln kannst, sortiert nach Typ.|n|nVerwendung: /attbattlepets
+## Notes-frFR: Affiche tous les familiers de combat que vous pouvez collectionner, classés par type.|n|nUtilisation: /attbattlepets
+## Notes-itIT: Ti mostra tutti gli animali da combattimento che puoi collezionare, elencati per tipo.|n|nUtilizzo: /attbattlepets
+## Notes-ptBR: Mostra todos os mascotes de batalha que você pode colecionar, listados por tipo.|n|nUso: /attbattlepets
+## Notes-koKR: 수집 가능한 모든 전투 애완동물을 종류별로 나열하여 보여줍니다.|n|n사용법: /attbattlepets
+## Notes-ruRU: Отображает всех боевых питомцев, которых вы можете собрать, в порядке убывания типа.|n|nИспользование: /attbattlepets
+## Notes-zhCN: 显示所有可收集的战斗宠物，并按类型列出。|n|n用法：/attbattlepets
+## Notes-zhTW: 顯示所有可收集的戰鬥寵物，並按類型列出。|n|n用法：/attbattlepets
+## IconTexture: Interface/Addons/AllTheThings/assets/Category_PetJournal
+## X-Commands: attbattlepets, attpets
+## X-Suffix: /attbattlepets
+
+Window - Battle Pets.lua

@@ -1,0 +1,158 @@
+local addonName = ...;
+
+-- Global locals
+local ipairs, pairs, tinsert =
+	  ipairs, pairs, tinsert;
+
+-- ATT locals
+local app = ATTC;
+local contains = app.contains;
+local CloneArray = app.CloneArray;
+local GetRelativeValue = app.GetRelativeValue;
+
+local BattlePetTypeNameByID = setmetatable({}, {
+	__index = function(t, id)
+		local name = _G["BATTLE_PET_NAME_" .. id];
+		t[id] = name;
+		return name;
+	end,
+});
+local BattlePetTypeIconByID = setmetatable({}, {
+	__index = function(t, id)
+		local icon = "interface/Addons\\" .. addonName .. "\\assets\\Icon_PetFamily_"..PET_TYPE_SUFFIX[id];
+		t[id] = icon;
+		return icon;
+	end,
+});
+local CreatePetType = app.CreateClass("PetType", "petTypeID", {
+	["name"] = function(t)
+		return BattlePetTypeNameByID[t.petTypeID];
+	end,
+	["icon"] = function(t)
+		return BattlePetTypeIconByID[t.petTypeID];
+	end,
+});
+local function MergeClone(g, o)
+	local clone = app.CloneClassInstance(o);
+	local u = GetRelativeValue(o, "u");
+	if u then clone.u = u; end
+	local e = GetRelativeValue(o, "e");
+	if e then clone.e = e; end
+	local lvl = GetRelativeValue(o, "lvl");
+	if lvl then clone.lvl = lvl; end
+	if not o.itemID or o.b == 1 then
+		local races = o.races;
+		if races then
+			clone.races = CloneArray(races);
+		else
+			local r = GetRelativeValue(o, "r");
+			if r then
+				clone.r = r;
+				clone.races = nil;
+			else
+				races = GetRelativeValue(o, "races");
+				if races then clone.races = CloneArray(races); end
+			end
+		end
+		local c = GetRelativeValue(o, "c");
+		if c then clone.c = CloneArray(c); end
+	end
+	return app.MergeObject(g, clone);
+end
+
+-- Implementation
+app:CreateWindowForAddon(addonName, {
+	AllowCompleteSound = true,
+	IsDynamicCategory = true,
+	OnInit = function(self, handlers)
+		self:SetData(app.CreateRawText(self.Title, {
+			icon = self.IconTexture,
+			description = self.Notes,
+			visible = true,
+			expanded = true,
+			back = 1,
+			g = {},
+			OnUpdate = function(data)
+				local g = data.g;
+				if #g < 1 then
+					local petTypes = {};
+					for _,petTypeID in ipairs({9,8,5,2,7,3,1,6,10,4}) do
+						local petType = CreatePetType(petTypeID, { g = {} });
+						petTypes[petTypeID] = petType;
+						petType.SortType = "name";
+						petType.parent = data;
+						tinsert(g, petType);
+					end
+					local battlepets = {};
+					for i,_ in pairs(app.SearchForFieldContainer("speciesID")) do
+						if not battlepets[i] then
+							local battlepet = app.CreateSpecies(tonumber(i));
+							local sources = {};
+							for j,o in ipairs(_) do
+								MergeClone(sources, o);
+								local coords = GetRelativeValue(o, "coords");
+								if coords then
+									if not battlepet.coords then
+										battlepet.coords = { unpack(coords) };
+									elseif battlepet.coords ~= coords then
+										for i,coord in ipairs(coords) do
+											tinsert(battlepet.coords, coord);
+										end
+									end
+								end
+								if o.parent and not o.sourceQuests then
+									local questID = GetRelativeValue(o, "questID");
+									if questID then
+										if not battlepet.sourceQuests then
+											battlepet.sourceQuests = {};
+										end
+										if not contains(battlepet.sourceQuests, questID) then
+											tinsert(battlepet.sourceQuests, questID);
+										end
+									else
+										local sourceQuests = GetRelativeValue(o, "sourceQuests");
+										if sourceQuests then
+											if not battlepet.sourceQuests then
+												battlepet.sourceQuests = {};
+												for k,questID in ipairs(sourceQuests) do
+													tinsert(battlepet.sourceQuests, questID);
+												end
+											else
+												for k,questID in ipairs(sourceQuests) do
+													if not contains(battlepet.sourceQuests, questID) then
+														tinsert(battlepet.sourceQuests, questID);
+													end
+												end
+											end
+										end
+									end
+								end
+							end
+							local count = #sources;
+							if count == 1 then
+								for key,value in pairs(sources[1]) do
+									battlepet[key] = value;
+								end
+							elseif count > 1 then
+								-- Find the most accessible version of the thing.
+								app.Sort(sources, app.SortDefaults.Accessibility);
+								for key,value in pairs(sources[1]) do
+									battlepet[key] = value;
+								end
+							end
+							battlepets[i] = battlepet;
+							battlepet.progress = nil;
+							battlepet.total = nil;
+							battlepet.g = nil;
+							battlepet.parent = battlepet.petTypeID and petTypes[battlepet.petTypeID] or data;
+							if not battlepet.u or battlepet.u ~= 1 then
+								tinsert(battlepet.parent.g, battlepet);
+							end
+						end
+					end
+					data.SortType = "name";
+				end
+			end
+		}));
+	end,
+});
