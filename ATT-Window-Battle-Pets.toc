@@ -4,17 +4,17 @@
 ## Group: AllTheThings
 ## Author: Crieve
 
-## Title: Window: Battle Pets
-## Title-esES: Ventanas: Mascotas de duelo
-## Title-esMX: Ventanas: Mascotas de duelo
-## Title-deDE: Window: Kampfhaustiere
-## Title-frFR: Window: Mascottes de combat
-## Title-itIT: Window: Mascotte da combattimento
-## Title-ptBR: Window: Mascotes de Batalha
-## Title-koKR: Window: 전투 애완동물
-## Title-ruRU: Window: Боевые питомцы
-## Title-zhCN: 窗口: 战斗宠物
-## Title-zhTW: 窗口: 戰寵
+## Title: ATT-Window: Battle Pets
+## Title-esES: ATT-Ventanas: Mascotas de duelo
+## Title-esMX: ATT-Ventanas: Mascotas de duelo
+## Title-deDE: ATT-Window: Kampfhaustiere
+## Title-frFR: ATT-Window: Mascottes de combat
+## Title-itIT: ATT-Window: Mascotte da combattimento
+## Title-ptBR: ATT-Window: Mascotes de Batalha
+## Title-koKR: ATT-Window: 전투 애완동물
+## Title-ruRU: ATT-Window: Боевые питомцы
+## Title-zhCN: ATT-窗口: 战斗宠物
+## Title-zhTW: ATT-窗口: 戰寵
 ## Notes: Shows you all of the battle pets that you can collect listed by type.|n|nUsage: /attbattlepets
 ## Notes-esES: Te muestra todas las mascotas de batalla que puedes coleccionar, ordenadas por tipo.|n|nUso: /attbattlepets
 ## Notes-esMX: Te muestra todas las mascotas de batalla que puedes coleccionar, ordenadas por tipo.|n|nUso: /attbattlepets
