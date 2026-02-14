@@ -11,10 +11,10 @@
 [![Patreon](https://img.shields.io/badge/Patreon-F96854?&logo=patreon&logoColor=white)](https://www.patreon.com/allthethings)
 [![Twitch](https://img.shields.io/badge/Twitch-%239146FF?logo=twitch&logoColor=white)](https://www.twitch.tv/crieve)
 <br>
-[![CurseForge](https://cf.way2muchnoise.eu/267285.svg)](https://www.curseforge.com/wow/addons/all-the-things)
+[![CurseForge](https://cf.way2muchnoise.eu/267285.svg)](https://legacy.curseforge.com/wow/addons/att-window-battle-pets)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/ATTWoWAddon/ATT-Window-Battle-Pets/total?logo=github&label=Downloads&cacheSeconds=600)
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=&logo=github&logoColor=white)](https://github.com/ATTWoWAddon/ATT-Window-Battle-Pets)
-[![CurseForge](https://img.shields.io/badge/CurseForge-%23F16436?logo=CurseForge&logoColor=black)](https://www.curseforge.com/wow/addons/all-the-things)
+[![CurseForge](https://img.shields.io/badge/CurseForge-%23F16436?logo=CurseForge&logoColor=black)](https://legacy.curseforge.com/wow/addons/att-window-battle-pets)
 [![Wago.io](https://img.shields.io/badge/Wago.io-%231e1e1e)](https://addons.wago.io/addons/att-window-battle-pets)
 <br>
 

@@ -3,6 +3,7 @@
 ## Dependencies: AllTheThings
 ## Group: AllTheThings
 ## Author: Crieve
+## X-Curse-Project-ID: 1462017
 ## X-Wago-ID: mKODqDGx
 
 ## Title: ATT-Window: Battle Pets
