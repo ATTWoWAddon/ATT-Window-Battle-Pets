@@ -1,4 +1,4 @@
-package-as: AllTheThings
+package-as: ATT-Window-Battle-Pets
 enable-nolib-creation: no
 
 externals:
