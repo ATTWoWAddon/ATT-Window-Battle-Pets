@@ -62,6 +62,7 @@ end
 
 -- Implementation
 app:CreateWindowForAddon(addonName, {
+	SettingsGroup = "Collections",
 	AllowCompleteSound = true,
 	IsDynamicCategory = true,
 	OnInit = function(self, handlers)
